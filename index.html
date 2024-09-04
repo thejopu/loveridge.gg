@@ -1,16 +1,28 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Woody Developments Ltd</title>
+  <title>CodePen - Login Form</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
   <link rel="stylesheet" href="./style.css">
-
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
 </head>
 <body>
 <!-- partial:index.partial.html -->
-<!-- But it's a dark age, a dangerous time -->
+<div class="login">
+  <form id="login-form">
+    <input type="text" name="u" placeholder="Username" required="required" />
+    <input type="password" name="p" placeholder="Password" required="required" />
+    <button type="submit" class="btn btn-primary btn-block btn-large">Login.</button>
+    <p id="error-message" style="color: rgb(194, 77, 97); display: none;">Incorrect</p>
+  </form>
+</div>
 <!-- partial -->
-  <script src='https://codepen.io/Gthibaud/pen/dybzvNw.js'></script><script  src="./script.js"></script>
-
+<script>
+  document.getElementById('login-form').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent form submission
+    document.getElementById('error-message').style.display = 'block'; // Show error message
+  });
+</script>
 </body>
 </html>
