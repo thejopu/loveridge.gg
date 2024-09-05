@@ -55,6 +55,8 @@ function addItemEvents(items) {
 }
 
 function loadTime() {
+    const weekday = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday (yay!)"]; // Corrected the day abbreviation
+
     const currentDate = new Date();
     const hours = currentDate.getHours();
     const minutes = currentDate.getMinutes();
@@ -66,9 +68,11 @@ function loadTime() {
     const year = currentDate.getFullYear();
     const formattedDate = `${day}/${month}/${year}`;
 
-    document.querySelector("#time").textContent = formattedTime;
+    document.querySelector('.time').textContent = formattedTime;
+    document.querySelector(".day").textContent = weekday[currentDate.getDay()];
     document.querySelector("#date").textContent = formattedDate;
 }
+
 
 function addSearchEvents() {
     document.querySelector(".search").addEventListener("keyup", function(event) {
