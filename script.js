@@ -1,129 +1,81 @@
-const API_URL =
-  "https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=3fd2be6f0c70a2a598f084ddfb75487c&page=1";
-const IMG_PATH = "https://image.tmdb.org/t/p/w1280";
-const SEARCH_API =
-  'https://api.themoviedb.org/3/search/movie?api_key=3fd2be6f0c70a2a598f084ddfb75487c&query="';
-
-const main = document.getElementById("main");
-const form = document.getElementById("form");
-const search = document.getElementById("search");
-
-getMovies(API_URL);
-
-async function getMovies(url) {
-  const res = await fetch(url);
-  const data = await res.json();
-
-  if (search.value && search.value !== "") {
-    searchMovies(data.results);
-  } else {
-    showRecommended(data.results);
-  }
-
-  console.log(data.results);
-}
-
-function showRecommended(movies) {
-  main.innerHTML = "";
-  const mostPopularMovies = document.createElement("div");
-  const recommendedMovies = document.createElement("div");
-  recommendedMovies.innerHTML = "<h2>Recommended for you</h2>";
-  const horizontalList = document.createElement("div");
-
-  mostPopularMovies.classList.add("most-popular");
-  recommendedMovies.classList.add("recommended");
-  horizontalList.classList.add("horizontal-list");
-
-  mostPopularMovies.appendChild(horizontalList);
-
-  main.appendChild(mostPopularMovies);
-  main.appendChild(recommendedMovies);
-
-  movies.forEach((movie, index) => {
-    const { title, backdrop_path, vote_average, overview } = movie;
-
-    const movieElement = document.createElement("div");
-
-    if (index < 5) {
-      movieElement.classList.add("movie-l");
-      movieElement.innerHTML = ` 
-            <img src="${IMG_PATH + backdrop_path}" alt="${title}">
-            <div class="movie-info">
-                 <h3>${title}</h3>
-             </div>
-             <div class="overview ${index >= 5 ? "hidden" : "visible"}">
-                 <p>${overview}</p>
-                 <div class="buttons">
-                     <button class="watch-now">Watch now</button>
-                     <button class="watch-later">+</button>
-                 </div>
-             </div>
-        `;
-    } else {
-      movieElement.classList.add("movie-s");
-      movieElement.innerHTML = ` 
-            <img src="${IMG_PATH + backdrop_path}" alt="${title}">
-            <div class="movie-info">
-                 <h3>${title}</h3>
-                 <span class="vote">★ ${vote_average}</span>
-             </div>
-             <div class="overview ${index >= 5 ? "hidden" : "visible"}">
-             <h3>${title}</h3> 
-                 <p>${overview}</p>
-                 <div class="buttons">
-                     <button class="watch-now">Watch now</button>
-                     <button class="watch-later">+</button>
-                 </div>
-             </div>
-        `;
-    }
-
-    if (index < 5) {
-      horizontalList.appendChild(movieElement);
-    } else {
-      recommendedMovies.appendChild(movieElement);
-    }
-  });
-}
-
-function searchMovies(movies) {
-  main.innerHTML = "";
-  const searchedMovies = document.createElement("div");
-  searchedMovies.classList.add("searched");
-  main.appendChild(searchedMovies);
-
-  movies.forEach((movie) => {
-    const { title, poster_path, vote_average, overview } = movie;
-
-    const movieElement = document.createElement("div");
-    movieElement.classList.add("movie-s");
-    movieElement.innerHTML = ` 
-            <img src="${IMG_PATH + poster_path}" alt="${title}">
-            <div class="movie-info">
-                 <h3>${title}</h3>
-                 <span class="vote">★ ${vote_average}</span>
-             </div>
-             <div class="overview hidden">
-             <h3>${title}</h3> 
-                 <p>${overview}</p>
-                 <div class="buttons">
-                     <button class="watch-now">Watch now</button>
-                     <button class="watch-later">+</button>
-                 </div>
-             </div>
-        `;
-
-    searchedMovies.appendChild(movieElement);
-  });
-}
-
-form.addEventListener("submit", (e) => {
-  e.preventDefault();
-
-  const searchTerm = search.value;
-  if (searchTerm && searchTerm !== "") {
-    getMovies(SEARCH_API + searchTerm);
-  } else {
-    window.location.reload();
-  }
+document.addEventListener("DOMContentLoaded", () => {
+    loadItems();
+    loadTime();
+    addSearchEvents();
+    // Note-related functions removed
 });
+
+function loadItems() {
+    var items = [
+        {
+            "icon": "fa-solid fa-user-shield",
+            "text": "Simple Login",
+            "link": "https://app.simplelogin.io/",
+            "accent": "#8b89cc"
+        },
+        {
+            "icon": "fa-solid fa-envelope",
+            "text": "Proton Mail",
+            "link": "https://mail.proton.me/",
+            "accent": "#8b89cc"
+        },
+        {
+            "icon": "fa-solid fa-unlock-keyhole",
+            "text": "Proton Pass",
+            "link": "https://pass.proton.me/",
+            "accent": "#8b89cc"
+        }
+    ];
+
+    let html = "";
+    items.forEach((obj, index) => {
+        html += `
+<a
+target="_blank"
+href="${obj.link}"
+class="w-24 shadow item flex flex-col items-center p-4">
+<i class="${obj.icon} text-3xl"></i>
+<div>${obj.text}</div>
+</a>
+`;
+    });
+    document.querySelector(".items").innerHTML = html;
+    addItemEvents(items);
+}
+
+function addItemEvents(items) {
+    document.querySelectorAll(".item").forEach((div, index) => {
+        div.addEventListener("mouseover", function(event) {
+            div.style.color = items[index].accent;
+        });
+        div.addEventListener("mouseout", function(event) {
+            div.style.color = "#111";
+        });
+    });
+}
+
+function loadTime() {
+    const currentDate = new Date();
+    const hours = currentDate.getHours();
+    const minutes = currentDate.getMinutes();
+    const formattedTime = `${hours < 10 ? '0' : ''}${hours}:${minutes < 10 ? '0' : ''}${minutes}`;
+
+    // Format date to dd/mm/yyyy
+    const day = String(currentDate.getDate()).padStart(2, '0');
+    const month = String(currentDate.getMonth() + 1).padStart(2, '0');
+    const year = currentDate.getFullYear();
+    const formattedDate = `${day}/${month}/${year}`;
+
+    document.querySelector("#time").textContent = formattedTime;
+    document.querySelector("#date").textContent = formattedDate;
+}
+
+function addSearchEvents() {
+    document.querySelector(".search").addEventListener("keyup", function(event) {
+        var query = event.target.value.trim();
+        if (event.keyCode == 13) {
+            var url = `https://www.google.com/search?q=${encodeURIComponent(query)}`;
+            window.location = url;
+        }
+    });
+}
