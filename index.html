@@ -1,28 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" >
 <head>
   <meta charset="UTF-8">
-  <title>loveridge.gg</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <title>CodePen - 17 Movie App</title>
   <link rel="stylesheet" href="./style.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+
 </head>
 <body>
 <!-- partial:index.partial.html -->
-<div class="login">
-  <form id="login-form">
-    <input type="text" name="u" placeholder="Username" required="required" />
-    <input type="password" name="p" placeholder="Password" required="required" />
-    <button type="submit" class="btn btn-primary btn-block btn-large">Login.</button>
-    <p id="error-message" style="color: rgb(194, 77, 97); display: none;">Incorrect</p>
-  </form>
-</div>
+<!--=============== FONT AWESOME ===============-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
+
+<body>
+  <header>
+    <div class="logo" id="logo" href="#"><i class="fa-solid fa-film"></i> MovieApp</div>
+    <form id="form">
+      <input type="text" id="search" class="search" placeholder="search">
+    </form>
+  </header>
+
+  <main id="main">
+  </main>
+
+  <script src="script.js"></script>
+</body>
 <!-- partial -->
-<script>
-  document.getElementById('login-form').addEventListener('submit', function(event) {
-    event.preventDefault(); // Prevent form submission
-    document.getElementById('error-message').style.display = 'block'; // Show error message
-  });
-</script>
+  <script  src="./script.js"></script>
+
 </body>
 </html>
