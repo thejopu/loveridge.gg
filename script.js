@@ -55,7 +55,7 @@ function addItemEvents(items) {
 }
 
 function loadTime() {
-    const weekday = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday (yay!)"]; // Corrected the day abbreviation
+    const weekday = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]; // Corrected the day abbreviation
 
     const currentDate = new Date();
     const hours = currentDate.getHours();
