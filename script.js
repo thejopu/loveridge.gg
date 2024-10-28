@@ -20,7 +20,7 @@ function loadItems() {
             "accent": "#8b89cc"
         },
         {
-            "icon": "fa-solid fa-rectangle-terminal",
+            "icon": "fa-solid fa-terminal",
             "text": "WC Console",
             "link": "https://logs.jdf.gg",
             "accent": "#8b89cc"
