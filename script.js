@@ -14,15 +14,15 @@ function loadItems() {
             "accent": "#8b89cc"
         },
         {
-            "icon": "fa-solid fa-envelope",
-            "text": "Proton Mail",
-            "link": "https://mail.proton.me/",
+            "icon": "fa-brands fa-discord",
+            "text": "Discord Analytics",
+            "link": "https://discordanalytics.xyz/dash",
             "accent": "#8b89cc"
         },
         {
-            "icon": "fa-solid fa-unlock-keyhole",
-            "text": "Proton Pass",
-            "link": "https://pass.proton.me/",
+            "icon": "fa-solid fa-rectangle-terminal",
+            "text": "WC Console",
+            "link": "https://logs.jdf.gg",
             "accent": "#8b89cc"
         }
     ];
