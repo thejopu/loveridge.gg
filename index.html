@@ -4,21 +4,28 @@
   <meta charset="UTF-8">
   <title>Jacob's Dashboard</title>
   <!-- Link to Lato font -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pangolin&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap">
   <!-- Tailwind CSS -->
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css'>
   <!-- Font Awesome -->
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css'>
   <!-- Custom CSS -->
   <link rel="stylesheet" href="./style.css">
-  <!-- Add additional styling for Lato font -->
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/gsap.min.js"></script>
   <style>
     body {
-      font-family: 'Pangolin', sans-serif;
+      font-family: 'Share Tech Mono', sans-serif;
+;
     }
   </style>
 </head>
 <body>
+
+  <canvas id="demo-canvas"></canvas>
+
+  <div class="main-container flex items-center justify-center gap-4">
+
   <!-- Wrap both sections in a common flex container -->
   <div class="main-container flex items-center justify-center gap-4">
     <!-- Time and Day Section -->
@@ -29,21 +36,8 @@
     </div>
   
     <!-- Buttons Section -->
-    <div class="buttons-container glass flex flex-col p-4 gap-2 justify-center">
-      <!-- Search Bar -->
-      <div class="glass w-full flex justify-center items-center p-2 gap-2">
-        <!-- Google Icon -->
-        <i class="fa-brands fa-google text-2xl" style="color: black;"></i>
-        <!-- Search Input -->
-        <input
-          autocomplete="on"
-          type="search"
-          placeholder="Search with Google..."
-          class="search w-1/2 p-2 rounded-full"
-        />
-      </div>
-      <!-- Links -->
-      <div class="items flex flex-wrap glass p-4 gap-2 justify-center"></div>
+    <div class="items-container glass flex flex-col p-4 gap-2 justify-center">
+      <div class="items flex flex-wrap p-4 gap-2 justify-center"></div>
     </div>
   </div>
   
