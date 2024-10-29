@@ -1,0 +1,764 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Dragon Training Guide</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+	background-color: #1e1e1e; /* Dark gray background */
+    color: #ffffff; /* White text */
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+	color: #80c7ff; /* Light blue for links, adjust if needed */
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+	background-color: #333333; /* Darker gray for specific elements */
+    color: #ffffff; /* White text for these elements as well */
+    border-color: #444444; /* Border color adjustment for dark mode */
+}
+
+li, p, .note, .step, .objective {
+    color: #ffffff; /* Ensure white text for list items, paragraphs, and any specific classes */
+}
+
+/* Specific styling for emphasized or alternative text */
+em, strong {
+    color: #ffffff;
+}
+
+/* Ensure nested elements inherit white color */
+.container * {
+    color: inherit !important;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+	color: #ffffff; /* White for headings */
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+	background-color: #333333; /* Darker gray for specific elements */
+    color: #ffffff; /* White text for these elements as well */
+    border-color: #444444; /* Border color adjustment for dark mode */
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+	background-color: #333333; /* Darker gray for specific elements */
+    color: #ffffff; /* White text for these elements as well */
+    border-color: #444444; /* Border color adjustment for dark mode */
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-default_background {
+	color: rgba(55, 53, 47, 1);
+	background-color: #333333; /* Darker gray for specific elements */
+    color: #ffffff; /* White text for these elements as well */
+    border-color: #444444; /* Border color adjustment for dark mode */
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+	background-color: #333333; /* Darker gray for specific elements */
+    color: #ffffff; /* White text for these elements as well */
+    border-color: #444444; /* Border color adjustment for dark mode */
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-transparentGray { background-color: rgba(227, 226, 224, 0); }
+.select-value-color-translucentGray { background-color: rgba(0, 0, 0, 0.06); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="12ef73d0-283e-806a-bbd5-c28ce0ef243c" class="page sans"><header><h1 class="page-title">Dragon Training Guide</h1><p class="page-description"></p></header><div class="page-body"><h3 id="12ef73d0-283e-8083-bd38-f2805edfc30e" class=""><strong>Dragon Training Guide</strong></h3><h3 id="12ef73d0-283e-80a5-93b0-dd527d8028c0" class=""><strong>1. Introduction to Dragon (5 mins)</strong></h3><ul id="12ef73d0-283e-800d-abaf-c7a3a2384a3b" class="bulleted-list"><li style="list-style-type:disc"><strong>Overview of Dragon Software</strong>: Explain what Dragon is, its purpose, and who benefits from it.</li></ul><ul id="12ef73d0-283e-80e5-a67f-d9eaa03a4bd9" class="bulleted-list"><li style="list-style-type:disc"><strong>Learning Objectives</strong>: List the main goals of the session (e.g., becoming comfortable with dictation, using commands, creating custom words).</li></ul><p id="12ef73d0-283e-8097-b64b-ee811a33e3d4" class="">
+</p><hr id="12ef73d0-283e-80bc-8a02-f6d919cce317"/><h3 id="12ef73d0-283e-804a-a297-fd9504ab1df4" class=""><strong>2. Initial Setup (10 mins)</strong></h3><ul id="12ef73d0-283e-8044-b96e-feda99eb954d" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked"><strong>Creating a Dragon Profile</strong>: Guide them through the setup wizard, explaining why Dragon needs to learn their voice.</span><div class="indented"><ul id="12ef73d0-283e-800b-ac44-d819e01ac881" class="toggle"><li><details open=""><summary><span style="border-bottom:0.05em solid">Trainer Notes</span></summary><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="12ef73d0-283e-8072-9711-eacdd99b5210"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%"><ul id="525f83a3-ffe2-46bf-ab0f-2a025fb247f9" class="bulleted-list"><li style="list-style-type:disc">Open Dragon software, and if prompted, select <strong>Create a New Profile</strong>.</li></ul><ul id="12ef73d0-283e-80af-8ccb-f4387d33c37a" class="bulleted-list"><li style="list-style-type:disc">Enter a name for the profile and select your preferred language, accent, and region.</li></ul><ul id="12ef73d0-283e-80d1-9c04-e765052dfc23" class="bulleted-list"><li style="list-style-type:disc">Follow the on-screen prompts for <strong>Microphone Setup</strong> and <strong>Voice Training</strong> (optional but recommended).</li></ul></div></figure></details></li></ul><p id="12ef73d0-283e-8060-92b2-f81f2e4eb23a" class="">
+</p></div></li></ul><ul id="12ef73d0-283e-80ac-ad6f-e1cac0b83cc1" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked"><strong>Microphone Setup &amp; Testing</strong>: Demonstrate proper microphone placement and calibration.</span><div class="indented"><ul id="12ef73d0-283e-80a1-a4c8-d0c9284052b8" class="toggle"><li><details open=""><summary><span style="border-bottom:0.05em solid">Trainer Notes</span></summary><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="12ef73d0-283e-8002-9382-f705c975118a"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%"><ul id="a6d731aa-badc-4d67-97eb-915739c6cdb3" class="bulleted-list"><li style="list-style-type:disc">Position the microphone approximately an inch from the mouth, avoiding breath sounds.</li></ul><ul id="12ef73d0-283e-808d-a052-e78afd72d0f1" class="bulleted-list"><li style="list-style-type:disc">In the <strong>Audio Setup Wizard</strong>, click <strong>Next</strong> to start the volume check.</li></ul><ul id="12ef73d0-283e-8093-804e-df858fc4d12d" class="bulleted-list"><li style="list-style-type:disc">Read the sample text on the screen at a natural pace to set microphone levels.</li></ul></div></figure></details></li></ul><p id="12ef73d0-283e-80c6-843d-e8b59de71d4f" class="">
+</p></div></li></ul><ul id="12ef73d0-283e-801f-a953-cc8ee8cf3dc6" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked"><strong>Voice Training</strong>: Discuss the importance of voice training and let users complete the built-in training.</span><div class="indented"><ul id="12ef73d0-283e-8015-9a9f-f8a1a130fb15" class="toggle"><li><details open=""><summary><span style="border-bottom:0.05em solid">Trainer Notes</span></summary><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="12ef73d0-283e-8008-b9e6-e59954a828a3"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%"><ul id="24d50485-e6e1-4503-8fa2-c514c0cda94f" class="bulleted-list"><li style="list-style-type:disc">Choose <strong>Run Voice Training</strong> in the setup, then read the prompts as they appear.</li></ul><ul id="12ef73d0-283e-80ae-8a1f-cb914c82f7ac" class="bulleted-list"><li style="list-style-type:disc">Complete any additional training prompts for improved accuracy (optional but enhances initial accuracy).</li></ul></div></figure><p id="12ef73d0-283e-808e-9eef-f983cf96ba1e" class="">
+</p></details></li></ul><p id="12ef73d0-283e-80eb-b592-c2bd9d1f3bf5" class="">
+</p></div></li></ul><hr id="12ef73d0-283e-80d0-b21b-cb14030cf694"/><h3 id="12ef73d0-283e-80ac-813b-cb9a87c0e80e" class=""><strong>3. Basics of Dictation (20 mins)</strong></h3><ul id="12ef73d0-283e-8059-bc6e-e066fc17f6bc" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked"><strong>Starting Dictation</strong>: Explain how to start, pause, and stop dictation.             </span><div class="indented"><ul id="12ef73d0-283e-80fa-869c-dc26e5452dd6" class="toggle"><li><details open=""><summary><span style="border-bottom:0.05em solid">Trainer Notes</span></summary><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="12ef73d0-283e-8050-889e-d40fe24748a2"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%"><ul id="45ce35f4-3101-4306-ae52-6fa1e656933b" class="bulleted-list"><li style="list-style-type:disc">Use the <strong>“Wake up”</strong> and <strong>“Go to sleep”</strong> voice commands to control dictation.</li></ul><ul id="12ef73d0-283e-80e2-95a5-d42cb39eeeba" class="bulleted-list"><li style="list-style-type:disc">Dictation can be started by placing the cursor in the desired text area and saying, <strong>“Wake up”</strong> or <strong>clicking the microphone icon</strong>.</li></ul></div></figure></details></li></ul><p id="12ef73d0-283e-80f9-881d-ebe94a0779b5" class="">
+</p></div></li></ul><ul id="12ef73d0-283e-8093-9f1e-d4778d522183" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked"><strong>Dictation Best Practices</strong>: Teach clear speech, pace, and pronunciation.</span><div class="indented"><ul id="12ef73d0-283e-80c1-9ff8-c67c4c4d61ec" class="toggle"><li><details open=""><summary><span style="border-bottom:0.05em solid">Trainer Notes</span></summary><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="12ef73d0-283e-80e9-adcd-c029445dec75"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%"><ul id="187c19e1-2060-45f4-a03d-535f2ffa4c3b" class="bulleted-list"><li style="list-style-type:disc">Speak at a steady pace and enunciate words clearly.</li></ul><ul id="12ef73d0-283e-809f-9264-e7f8e8c3884d" class="bulleted-list"><li style="list-style-type:disc">Avoid background noise; if there’s any interference, pause and resume when clear.</li></ul></div></figure></details></li></ul><p id="12ef73d0-283e-8006-9916-eaacf714df8e" class="">
+</p></div></li></ul><ul id="12ef73d0-283e-8060-afef-dd5eb27efe0f" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked"><strong>Real-Time vs. Deferred Transcription</strong>: Explain real-time dictation and the alternative method if using pre-recorded audio.</span><div class="indented"><ul id="12ef73d0-283e-80ca-b501-fee56ba46054" class="toggle"><li><details open=""><summary><span style="border-bottom:0.05em solid">Trainer Notes</span></summary><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="12ef73d0-283e-8042-9c93-f62a719a7991"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%"><ul id="a30dbdac-221d-4c69-bc55-70b9ce8d3374" class="bulleted-list"><li style="list-style-type:disc"><strong>Real-Time</strong>: Use Dragon live with the cursor in the text area.</li></ul><ul id="12ef73d0-283e-8096-b95d-fdb43c159050" class="bulleted-list"><li style="list-style-type:disc"><strong>Deferred Transcription</strong>: Use the <strong>Transcribe Recording</strong> option under the <strong>Tools</strong> menu to transcribe recorded audio.</li></ul></div></figure></details></li></ul><p id="12ef73d0-283e-8054-b31a-c92bd1ead2f7" class="">
+</p></div></li></ul><ul id="12ef73d0-283e-80a2-aeaf-e2c233ffa8d7" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked"><strong>Correcting Mistakes in Dictation</strong>: Demonstrate using commands like “select [word]” or “correct [word]” to improve accuracy.</span><div class="indented"><ul id="12ef73d0-283e-8027-8e62-feb18bcb50d6" class="toggle"><li><details open=""><summary><span style="border-bottom:0.05em solid">Trainer Notes</span></summary><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="12ef73d0-283e-80f1-9060-e6b30969baf8"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%"><ul id="f3464e07-0a25-4369-9ce3-6038f6eb7008" class="bulleted-list"><li style="list-style-type:disc">Say, <strong>“Select [word]”</strong> to highlight text for editing.</li></ul><ul id="12ef73d0-283e-80e1-84ae-d9ef8211686b" class="bulleted-list"><li style="list-style-type:disc">Use <strong>“Correct [word]”</strong> to access correction options or <strong>“Spell that”</strong> for specific spelling corrections.</li></ul></div></figure><p id="12ef73d0-283e-8054-be00-d11014aa7a22" class="">
+</p></details></li></ul><p id="12ef73d0-283e-8090-b3e3-ef93e930280c" class="">
+</p></div></li></ul><hr id="12ef73d0-283e-808d-8e4f-ee47278e1396"/><h3 id="12ef73d0-283e-800b-9f84-ea42983610c3" class=""><strong>4. Voice Commands (25 mins)</strong></h3><ul id="12ef73d0-283e-80f7-9b26-d639b106ca6f" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked"><strong>Basic Commands</strong>: Cover navigation commands like “Go to end of line” and “New paragraph.”</span><div class="indented"><ul id="12ef73d0-283e-801b-8f81-fa7fb664fa73" class="toggle"><li><details open=""><summary><span style="border-bottom:0.05em solid">Trainer Notes</span></summary><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="12ef73d0-283e-8050-9db0-c0cd728f4c7f"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%"><ul id="139c6305-2f96-419c-8ebc-6672e745581d" class="bulleted-list"><li style="list-style-type:disc"><strong>Navigation</strong>: <strong>“Go to end of line,” “Move to beginning of document”</strong>.</li></ul><ul id="12ef73d0-283e-8028-8513-c337b79ad5dd" class="bulleted-list"><li style="list-style-type:disc"><strong>New paragraph/line</strong>: Say, <strong>“New paragraph”</strong> or <strong>“New line”</strong>.</li></ul></div></figure></details></li></ul><p id="12ef73d0-283e-8028-aa70-f7f5152066c9" class="">
+</p></div></li></ul><ul id="12ef73d0-283e-8091-b860-ded2a096e160" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked"><strong>Advanced Commands</strong>: Formatting and editing commands like “Bold that” and “Undo.”</span><div class="indented"><ul id="12ef73d0-283e-80e4-9fff-ca215526bbd3" class="toggle"><li><details open=""><summary><span style="border-bottom:0.05em solid">Trainer Notes</span></summary><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="12ef73d0-283e-8068-b5f7-f0ca2256ff25"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%"><ul id="6f09b98b-9b44-4c11-b112-b3176e22bb71" class="bulleted-list"><li style="list-style-type:disc"><strong>Formatting</strong>: <strong>“Bold [word/phrase],” “Underline that,” “Italicize [phrase]”</strong>.</li></ul><ul id="12ef73d0-283e-80af-849b-fe624ce234b8" class="bulleted-list"><li style="list-style-type:disc"><strong>Undo Commands</strong>: <strong>“Undo that”</strong> for the most recent action or <strong>“Delete that”</strong> to delete recent text.</li></ul></div></figure></details></li></ul><p id="12ef73d0-283e-8028-bb3e-cc0b7ec32142" class="">
+</p></div></li></ul><ul id="12ef73d0-283e-8010-959f-d60150b3b71a" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked"><strong>Mouse and Keyboard Emulation</strong>: Show how to use voice commands to control the mouse and keyboard.</span><div class="indented"><ul id="12ef73d0-283e-80c1-a75d-e23e7ca7f37e" class="toggle"><li><details open=""><summary><span style="border-bottom:0.05em solid">Trainer Notes</span></summary><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="12ef73d0-283e-806f-bed8-ff9a8297d077"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%"><ul id="4bc4c941-9d2a-4d4b-943e-9c0d2fc6dcab" class="bulleted-list"><li style="list-style-type:disc">Use <strong>“MouseGrid”</strong> to bring up a 9-square grid and control the mouse by saying the numbers of each square.</li></ul><ul id="12ef73d0-283e-80ce-8b89-e05e1299e451" class="bulleted-list"><li style="list-style-type:disc">For keyboard control, say <strong>“Press [key or key combination]”</strong> (e.g., “Press Enter” or “Press Control A”).</li></ul></div></figure></details></li></ul><p id="12ef73d0-283e-80e4-ac82-ef93046d8437" class="">
+</p></div></li></ul><ul id="12ef73d0-283e-8013-ab3f-f1abbaefb647" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked"><strong>Custom Commands</strong>: Demonstrate creating custom commands.</span><div class="indented"><ul id="12ef73d0-283e-802f-8456-efcdc8b2a103" class="toggle"><li><details open=""><summary><span style="border-bottom:0.05em solid">Trainer Notes</span></summary><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="12ef73d0-283e-80da-ae20-c994c4c7505a"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%"><ul id="00203206-a3eb-4b0f-9689-c71a6c86cb0e" class="bulleted-list"><li style="list-style-type:disc">Go to <strong>Tools &gt; Command Browser</strong>, click <strong>New Command</strong>, then specify <strong>Spoken Phrase</strong> and <strong>Action</strong> (e.g., opening an application).</li></ul></div></figure><p id="12ef73d0-283e-80fc-a243-f1a6b239c9e7" class="">
+</p></details></li></ul><p id="12ef73d0-283e-8032-acb2-e69f83801193" class="">
+</p></div></li></ul><hr id="12ef73d0-283e-80b5-b45c-e34ed2ec4700"/><h3 id="12ef73d0-283e-80b4-b821-d59c5f4c7007" class=""><strong>5. Vocabulary and Custom Words (20 mins)</strong></h3><ul id="12ef73d0-283e-807f-880d-f476dffeab64" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked"><strong>Adding Words to the Vocabulary</strong>: Show how to add new words to Dragon’s vocabulary.</span><div class="indented"><ul id="12ef73d0-283e-8047-a3c7-ec8526d0ff08" class="toggle"><li><details open=""><summary><span style="border-bottom:0.05em solid">Trainer Notes</span></summary><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="12ef73d0-283e-80c0-a5da-e0f3574e81d1"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%"><ul id="7eb4848b-ffbd-4c36-8e58-9483d391a1f7" class="bulleted-list"><li style="list-style-type:disc">Go to <strong>Vocabulary &gt; Add new word or phrase</strong>, then type the word, click <strong>Add</strong>, and, if needed, record a custom pronunciation.</li></ul></div></figure></details></li></ul><p id="12ef73d0-283e-802b-8301-e4783852ee3a" class="">
+</p></div></li></ul><ul id="12ef73d0-283e-80fa-9553-c100ab9a04b2" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked"><strong>Deleting and Modifying Words</strong>: Demonstrate deleting unnecessary words or adjusting word properties.</span><div class="indented"><ul id="12ef73d0-283e-806c-aed0-deec9c03b041" class="toggle"><li><details open=""><summary><span style="border-bottom:0.05em solid">Trainer Notes</span></summary><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="12ef73d0-283e-80f0-a149-f2921e2d858e"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%"><ul id="9371b308-2014-490a-bfc7-218709bf382a" class="bulleted-list"><li style="list-style-type:disc">In the <strong>Vocabulary Editor</strong>, locate the word, select it, and click <strong>Delete</strong> or <strong>Properties</strong> to modify pronunciation or formatting.</li></ul></div></figure></details></li></ul><p id="12ef73d0-283e-8066-8cd8-f047f059a6b0" class="">
+</p></div></li></ul><ul id="12ef73d0-283e-808c-8a00-eea2c2aca5e2" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked"><strong>Creating Word Lists</strong>: Show how to import custom word lists.</span><div class="indented"><ul id="12ef73d0-283e-8009-8dc4-d84c35b462be" class="toggle"><li><details open=""><summary><span style="border-bottom:0.05em solid">Trainer Notes</span></summary><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="12ef73d0-283e-80aa-b40f-d3fc7b62973d"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%"><ul id="a8dea453-d3d9-44a0-827d-d84da6cb0dee" class="bulleted-list"><li style="list-style-type:disc">Prepare a text file with one word/phrase per line.</li></ul><ul id="12ef73d0-283e-80c4-a0d8-fbb88a5e7a33" class="bulleted-list"><li style="list-style-type:disc">Go to <strong>Vocabulary &gt; Import list of words or phrases</strong>, then select the text file and import.</li></ul></div></figure></details></li></ul><p id="12ef73d0-283e-80dd-b57b-ed84c074fd01" class="">
+</p></div></li></ul><ul id="12ef73d0-283e-80e3-b2ff-deec0129756d" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked"><strong>Using the Vocabulary Editor</strong>: Fine-tune word pronunciations and spellings.</span><div class="indented"><ul id="12ef73d0-283e-8040-8010-fc0965ebd0f8" class="toggle"><li><details open=""><summary><span style="border-bottom:0.05em solid">Trainer Notes</span></summary><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="12ef73d0-283e-803e-8072-cf46272d88f6"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%"><ul id="e9e934de-3c63-4d48-9302-9ece08e0a4c6" class="bulleted-list"><li style="list-style-type:disc">Access the <strong>Vocabulary Editor</strong>, find the word, and use <strong>Train</strong> to record a specific pronunciation.</li></ul></div></figure><p id="12ef73d0-283e-80ee-ae31-d6e474b71ef3" class="">
+</p></details></li></ul><p id="12ef73d0-283e-80ec-9945-ebdd4c5c2e2c" class="">
+</p></div></li></ul><hr id="12ef73d0-283e-80b8-9025-e9f39ff7cf15"/><h3 id="12ef73d0-283e-8013-8414-fb0ccdcb905c" class=""><strong>6. Error Correction &amp; Improving Accuracy (15 mins)</strong></h3><ul id="12ef73d0-283e-8028-ae5e-c2f07259839c" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked"><strong>Training Dragon for Accuracy</strong>: Show how to train Dragon for challenging words.</span><div class="indented"><ul id="12ef73d0-283e-80ca-a5ed-f8082ab6997f" class="toggle"><li><details open=""><summary><span style="border-bottom:0.05em solid">Trainer Notes</span></summary><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="12ef73d0-283e-80ef-9201-e4a47d371cc7"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%"><ul id="4c17b3b4-eb8b-407b-9b98-fbcfad62015a" class="bulleted-list"><li style="list-style-type:disc">In the <strong>Correction menu</strong>, select the word and choose <strong>Train</strong> to improve recognition.</li></ul></div></figure></details></li></ul><p id="12ef73d0-283e-8073-804d-e6ea61d05163" class="">
+</p></div></li></ul><ul id="12ef73d0-283e-806e-861a-d01dc3f4afec" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked"><strong>Reviewing Accuracy Settings</strong>: Adjust settings impacting accuracy.</span><div class="indented"><ul id="12ef73d0-283e-802d-966d-c67b86e77426" class="toggle"><li><details open=""><summary><span style="border-bottom:0.05em solid">Trainer Notes</span></summary><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="12ef73d0-283e-802c-9d50-d563a7a5ab73"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%"><ul id="9ffe5e58-756f-441d-85c5-09f9ae057d74" class="bulleted-list"><li style="list-style-type:disc">Go to <strong>Options &gt; Miscellaneous</strong> for <strong>Accuracy Tuning</strong> and adjust options like <strong>Automatic Formatting</strong>.</li></ul></div></figure></details></li></ul><p id="12ef73d0-283e-80f4-8cc2-d733b0e45900" class="">
+</p></div></li></ul><ul id="12ef73d0-283e-800f-aaa2-d019fe5dbb42" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked"><strong>Using Acoustic and Language Model Optimization</strong>: Explain optimization tools for better performance.</span><div class="indented"><ul id="12ef73d0-283e-80a5-9a91-eb6bbb9de513" class="toggle"><li><details open=""><summary><span style="border-bottom:0.05em solid">Trainer Notes</span></summary><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="12ef73d0-283e-80af-bbf3-e7068da87edb"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%"><ul id="a564a6de-7593-46ad-a06d-c03b479cae04" class="bulleted-list"><li style="list-style-type:disc">Go to <strong>Tools &gt; Accuracy Center</strong>, select <strong>Acoustic and Language Model Optimization</strong>, and run periodically.</li></ul></div></figure><p id="12ef73d0-283e-80a8-8b58-fd04d5bb31fd" class="">
+</p></details></li></ul><p id="12ef73d0-283e-80ca-a27e-d1872d74f353" class="">
+</p></div></li></ul><hr id="12ef73d0-283e-80b0-bc94-c081508aff17"/><h3 id="12ef73d0-283e-802f-b6de-c7dd25c6e743" class=""><strong>7. Troubleshooting Common Issues (10 mins)</strong></h3><ul id="12ef73d0-283e-8045-b584-fddb0bca32cf" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked"><strong>Audio Issues</strong>: Address microphone or headset issues.</span><div class="indented"><ul id="12ef73d0-283e-80f3-accb-d6b2401a2bad" class="toggle"><li><details open=""><summary><span style="border-bottom:0.05em solid">Trainer Notes</span></summary><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="12ef73d0-283e-80ea-92a0-ed0d63017f37"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%"><ul id="159d072f-4685-47cd-b92b-c66b87c7129e" class="bulleted-list"><li style="list-style-type:disc">Check the <strong>Audio Setup Wizard</strong> under <strong>Tools &gt; Accuracy Center &gt; Check Microphone</strong>.</li></ul></div></figure></details></li></ul><p id="12ef73d0-283e-80ea-8dfd-f9e21d12dd00" class="">
+</p></div></li></ul><ul id="12ef73d0-283e-8074-9693-ee0c4ccc8a4d" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked"><strong>Accuracy Problems</strong>: Troubleshoot accuracy by voice retraining or adjusting microphone settings.</span><div class="indented"><ul id="12ef73d0-283e-8027-8995-d1048841e842" class="toggle"><li><details open=""><summary><span style="border-bottom:0.05em solid">Trainer Notes</span></summary><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="12ef73d0-283e-8090-a72a-e2e7b76276ad"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%"><ul id="4b56ded2-3e1d-4b13-9152-3eeee0fc4274" class="bulleted-list"><li style="list-style-type:disc">Redo <strong>Voice Training</strong> if accuracy declines, or adjust microphone placement if clarity is an issue.</li></ul></div></figure></details></li></ul><p id="12ef73d0-283e-80e4-930d-f8b43b7b02d5" class="">
+</p></div></li></ul><ul id="12ef73d0-283e-800d-b148-cec7e88396a3" class="to-do-list"><li><div class="checkbox checkbox-off"></div> <span class="to-do-children-unchecked"><strong>Software Conflicts</strong>: Identify potential compatibility issues.</span><div class="indented"><ul id="12ef73d0-283e-8061-a6c2-d9e448650361" class="toggle"><li><details open=""><summary><span style="border-bottom:0.05em solid">Trainer Notes</span></summary><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="12ef73d0-283e-8069-83e1-dc5d309799e2"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%"><ul id="49c2b246-c7a6-4ac9-b136-1a9e8370d200" class="bulleted-list"><li style="list-style-type:disc">Advise users to close unnecessary background applications and check for any software conflicts with Dragon’s support resources.</li></ul></div></figure><p id="12ef73d0-283e-80ab-a3ab-f0ddd820257a" class="">
+</p></details></li></ul><p id="12ef73d0-283e-808b-8614-c722e8e03e2a" class="">
+</p></div></li></ul><hr id="12ef73d0-283e-8073-814b-ee8f36d1c382"/><h3 id="12ef73d0-283e-80e2-8912-e044262b7c58" class=""><strong>8. Practice &amp; Q&amp;A (15 mins)</strong></h3><ul id="12ef73d0-283e-8023-b576-f0ed4a558cb5" class="bulleted-list"><li style="list-style-type:disc"><strong>Hands-on Practice</strong>: Allow users to try dictation, commands, and vocabulary.</li></ul><ul id="12ef73d0-283e-8022-b1a2-d155db336fed" class="bulleted-list"><li style="list-style-type:disc"><strong>Q&amp;A</strong>: Address specific questions, allowing users to clarify any concepts.</li></ul></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
+
+<script>
+	document.addEventListener("DOMContentLoaded", () => {
+		const checkboxes = document.querySelectorAll(".checkbox");
+	
+		checkboxes.forEach((checkbox) => {
+			checkbox.addEventListener("click", () => {
+				if (checkbox.classList.contains("checkbox-off")) {
+					checkbox.classList.remove("checkbox-off");
+					checkbox.classList.add("checkbox-on");
+				} else {
+					checkbox.classList.remove("checkbox-on");
+					checkbox.classList.add("checkbox-off");
+				}
+			});
+		});
+	});
+	</script>
+	

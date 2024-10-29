@@ -50,6 +50,7 @@ body {
 .item {
     width: 120px; 
     height: 120px; 
+    position: relative;
     display: flex;
     flex-direction: row;
     justify-content: center; 
@@ -69,10 +70,9 @@ body {
     text-align: center; /* Ensure the text inside the div is centered */
 }
 
-/* Hover effect for the button */
 .item:hover {
-    background: rgba(255, 255, 255, 0.25); /* Less transparent than before */
-    color: #cccccc; /* Optional: Adjust text color if needed */
+    background: rgba(255, 255, 255, 0.25);
+    color: #cccccc;
 }
 
 .time-container {
@@ -112,4 +112,78 @@ input[type="search"] {
     background-position: center center;
     z-index: 1;
 }
+
+/* Restrict glass styling to specific elements */
+.item, .time, .day, #date {
+    backdrop-filter: blur(8px); /* Glass effect for individual buttons and time/date */
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 1rem;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
+}
+
+/* Minimal style for layout purposes, without glass effect */
+.items-container.glass {
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+    padding: 20px; /* Adjust padding for spacing */
+}
+
+.training-container {
+    position: relative; /* This anchors the absolute position of .sub-items */
+}
+
+.sub-items {
+    position: absolute;
+    top: 100%; /* Directly below the main button */
+    left: 50%; /* Center alignment */
+    transform: translateX(-50%); /* Offset by half of the width to center */
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    overflow: hidden;
+    max-height: 0; /* Initially hidden */
+    transition: max-height 0.3s ease; /* Smooth slide-down/up animation */
+    margin-top: 5px;
+    z-index: 1; /* Ensure it appears above other elements if overlapping */
+    background: rgba(255, 255, 255, 0.01); /* Match main button background */
+    backdrop-filter: blur(8px); /* Same blur level as main buttons */
+    color: #cccccc;
+}
+
+.sub-item:hover {
+    background: rgba(255, 255, 255, 0.25); /* Slightly lighter on hover, like main button */
+    color: #cccccc;
+}
+
+
+.sub-items.expanded {
+    max-height: 200px; /* Adjust this height based on the content */
+}
+
+.sub-item {
+    width: 90px; /* Smaller width for sub-buttons */
+    background: rgba(255, 255, 255, 0.15); /* Slightly different background */
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    text-align: center;
+    border-left: 3px solid #8b89cc; /* Accent color for sub-buttons */
+    transition: all 0.2s;
+}
+
+.item.active {
+    border-bottom: 3px solid #8b89cc; /* Accent color at the bottom */
+    padding-bottom: 2px; /* Adjust padding to avoid layout shift */
+    transition: border-bottom 0.2s ease; /* Smooth transition */
+}
+
+
+
+
+
+
+
+
+
 
