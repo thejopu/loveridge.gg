@@ -168,8 +168,9 @@ input[type="search"] {
     padding: 0.5rem;
     border-radius: 0.5rem;
     text-align: center;
-    border-left: 3px solid #8b89cc; /* Accent color for sub-buttons */
     transition: all 0.2s;
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Slightly stronger white border to match main buttons */
+    box-shadow: 0px 0px 4px rgba(255, 255, 255, 0.2); /* Subtle shadow for glow effect */
 }
 
 .item.active {
