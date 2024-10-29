@@ -6,22 +6,30 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function loadItems() {
     var items = [
+
+
         {
-            "icon": "fa-solid fa-user-shield",
-            "text": "Simple Login",
-            "link": "https://app.simplelogin.io/",
+            "icon": "fa-solid fa-robot",
+            "text": "ChatGPT",
+            "link": "https://chatgpt.com/",
             "accent": "#8b89cc"
         },
         {
             "icon": "fa-brands fa-discord",
-            "text": "Wizarding Cards Analytics",
+            "text": "Bot Analytics",
             "link": "https://discordanalytics.xyz/dash",
             "accent": "#8b89cc"
         },
         {
             "icon": "fa-solid fa-terminal",
-            "text": "Wizarding Cards Console",
+            "text": "Bot Console",
             "link": "https://logs.jdf.gg",
+            "accent": "#8b89cc"
+        },
+        {
+            "icon": "fa-solid fa-user-shield",
+            "text": "Simple Login",
+            "link": "https://app.simplelogin.io/",
             "accent": "#8b89cc"
         }
     ];

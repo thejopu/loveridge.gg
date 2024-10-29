@@ -51,7 +51,7 @@ body {
     width: 120px; 
     height: 120px; 
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center; 
     align-items: center; 
     text-align: center; 
@@ -61,6 +61,8 @@ body {
     backdrop-filter: blur(8px);
     border: 1px solid #cecece80;
     cursor: pointer;
+    flex-wrap: wrap; /* Allows items to wrap if they exceed container width */
+    gap: 10px; /* Adjusts space between items */
 }
 
 .item div {
