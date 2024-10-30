@@ -11,7 +11,8 @@ function loadItems() {
         { "icon": "fa-solid fa-terminal", "text": "Bot Console", "link": "https://logs.jdf.gg", "accent": "#8b89cc" },
         { "icon": "fa-solid fa-user-shield", "text": "Simple Login", "link": "https://app.simplelogin.io/", "accent": "#8b89cc" },
         { "icon": "fa-solid fa-chalkboard-teacher", "text": "AT Training", "accent": "#8b89cc", "subItems": [
-            { "icon": "fa-solid fa-dragon", "text": "Dragon", "link": "dragon_training.html" }
+            { "icon": "fa-solid fa-dragon", "text": "Dragon", "link": "dragon_training.html" },
+            { "icon": "fa-solid fa-book", "text": "ProStudy", "link": "prostudy_training.html" }
             
         ]}
     ];
