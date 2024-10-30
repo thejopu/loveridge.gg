@@ -18,18 +18,14 @@ body {
     font-family: 'Share Tech Mono', sans-serif;
 }
 
-.h-fit {
-    height: fit-content;
-}
+
 
 .card_icon {
     background: #ffffff1f;
     border-radius: 1rem;
 }
 
-.blur {
-    backdrop-filter: blur(6px);
-}
+
 
 .glass {
     backdrop-filter: blur(3px);
@@ -95,23 +91,9 @@ input[type="search"] {
 }
 
 
-#demo-canvas {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1; /* Ensures it stays behind all other content */
-}
+#demo-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; }
 
-.large-header {
-    position: relative;
-    width: 100%;
-    overflow: hidden;
-    background-size: cover;
-    background-position: center center;
-    z-index: 1;
-}
+
 
 /* Restrict glass styling to specific elements */
 .item, .time, .day, #date {
@@ -188,3 +170,39 @@ input[type="search"] {
 
 
 
+
+/* Add light blue accent color to AT Training button when expanded */
+.training-container .item.active {
+    border-bottom: 3px solid #9cd9f9;
+    padding-bottom: 2px; /* Adjust padding to avoid layout shift */
+    transition: border-bottom 0.2s ease;
+}
+
+/* Trigger active class based on expanded sub-items */
+.sub-items.expanded + .item {
+    border-bottom: 3px solid #9cd9f9; /* Accent color on expand */
+}
+
+/* Button hover and focus highlight effects for smoother transitions */
+.item, .sub-item {
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.item:hover, .item:focus, .sub-item:hover, .sub-item:focus {
+    background: rgba(255, 255, 255, 0.3); /* Slightly lighter background on hover/focus */
+    transform: scale(1.05); /* Subtle scale effect for feedback */
+}
+
+/* Smooth expansion effect for sub-buttons */
+.sub-items {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease, opacity 0.3s ease;
+}
+
+/* When expanded, sub-items smoothly become visible with max-height control */
+.sub-items.expanded {
+    max-height: 200px; /* Adjusted based on content */
+    opacity: 1;
+}
