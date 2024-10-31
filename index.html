@@ -28,6 +28,7 @@
 
   <!-- Wrap both sections in a common flex container -->
   <div class="main-container flex items-center justify-center gap-4">
+    
     <!-- Time and Day Section -->
     <div class="time-container flex flex-col h-full p-4 gap-2 justify-center">
       <div class="time glass p-2 text-3xl text-center" id="time">23:50</div>
@@ -73,6 +74,13 @@
         </div>
     </div>
 </div>
+<!-- Notepad Section -->
+<div class="notepad glass p-4 w-full">
+    <h3 class="text-center">Notepad</h3>
+    <textarea id="notepad" placeholder="Type your notes here..." class="w-full p-2 bg-transparent text-gray-200"></textarea>
+    <button onclick="saveNote()" class="item p-2 mt-2">Save Note</button>
+</div>
+
 
     </div>
   </div>
