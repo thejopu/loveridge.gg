@@ -30,13 +30,3 @@ function loadTime() {
     document.querySelector("#date").textContent = formattedDate;
 }
 
-function checkPassword(index) {
-    const password = prompt("Enter the password to access AT Training:");
-    const correctPassword = "AT2024";  // Change this to your desired password
-
-    if (password === correctPassword) {
-        toggleSubItems(index);
-    } else {
-        alert("Incorrect password!");
-    }
-}

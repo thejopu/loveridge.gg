@@ -67,9 +67,11 @@ body {
 }
 
 .item:hover {
-    background: rgba(255, 255, 255, 0.25);
-    color: #cccccc;
+    z-index: 10; /* or a higher value if needed */
+    transform: scale(1.05); /* Apply your desired hover effect */
+    background: rgba(255, 255, 255, 0.3); /* Lighter background */
 }
+
 
 .time-container {
     text-align: center;
@@ -162,15 +164,6 @@ input[type="search"] {
 }
 
 
-
-
-
-
-
-
-
-
-
 /* Add light blue accent color to AT Training button when expanded */
 .training-container .item.active {
     border-bottom: 3px solid #9cd9f9;
@@ -206,3 +199,5 @@ input[type="search"] {
     max-height: 200px; /* Adjusted based on content */
     opacity: 1;
 }
+
+
